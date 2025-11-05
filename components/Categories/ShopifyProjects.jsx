@@ -60,3 +60,5 @@ const ShopifyProjects = () => {
 };
 
 export default ShopifyProjects;
+
+/*This component fetches and displays Shopify projects from Sanity CMS. It uses React hooks for state management and side effects, and Next.js Image and Link components for optimized image rendering and navigation. The projects are displayed in a grid layout with conditional rendering for cases when no projects are available.*/
