@@ -9,12 +9,7 @@ const expertiseData = [
   {
     title: "WordPress Development",
     img: "/wordpress.jpg",
-    link: "/wordpress", // 🔗 page route
-  },
-  {
-    title: "Shopify Liquid Development",
-    img: "/shop.jpg",
-    link: "/shop",
+    link: "/wordpress",
   },
   {
     title: "Next.js / React Development",
@@ -22,15 +17,15 @@ const expertiseData = [
     link: "/next",
   },
   {
-    title: "Graphics Design",
-    img: "/graphics.jpg",
-    link: "",
+    title: "Shopify Development",
+    img: "/shop.jpg",
+    link: "/shop",
   },
 ];
 
 const Expertise = () => {
   return (
-    <section className={styles.expertise}>
+    <section className={styles.expertise} id="expertise">
       <div className={styles.container}>
         {expertiseData.map((item, index) => (
           <div key={index} className={styles.card}>

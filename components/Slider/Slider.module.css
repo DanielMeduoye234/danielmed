@@ -1,31 +1,37 @@
 .slider {
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(135deg, #1e1e2f, #111);
-  padding: 40px 0;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  padding: 60px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .sliderTrack {
   display: flex;
-  width: 200%; /* twice the width for smooth loop */
-  animation: scroll 20s linear infinite;
+  width: max-content;
+  animation: scroll 40s linear infinite;
 }
 
 .slide {
   flex: 0 0 auto;
-  width: 120px;
-  margin: 0 30px;
+  width: 150px;
+  margin: 0 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 4rem; /* icon size */
-  color: #ffffff;
-  transition: transform 0.3s ease, color 0.3s ease;
+  font-size: 3.5rem;
+  color: #52525b;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
 }
 
 .slide:hover {
-  transform: scale(1.2);
-  color: #38bdf8; /* sky blue on hover */
+  transform: scale(1.25) translateY(-5px);
+  color: #fff;
+  filter: drop-shadow(0 0 15px rgba(99, 102, 241, 0.4));
 }
 
 @keyframes scroll {
@@ -41,44 +47,32 @@
 /* ✅ Responsive Styles   */
 /* ====================== */
 
-/* Tablets */
 @media (max-width: 992px) {
+  .slide {
+    width: 120px;
+    margin: 0 30px;
+    font-size: 2.8rem;
+  }
+  .slider {
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: 768px) {
   .slide {
     width: 90px;
     margin: 0 20px;
-    font-size: 3rem;
+    font-size: 2.2rem;
   }
   .slider {
     padding: 30px 0;
   }
 }
 
-/* Mobiles */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .slide {
     width: 70px;
     margin: 0 15px;
-    font-size: 2.5rem;
-  }
-  .sliderTrack {
-    animation: scroll 18s linear infinite; /* slightly faster for smaller screens */
-  }
-  .slider {
-    padding: 25px 0;
-  }
-}
-
-/* Small Mobiles */
-@media (max-width: 480px) {
-  .slide {
-    width: 55px;
-    margin: 0 12px;
-    font-size: 2rem;
-  }
-  .slider {
-    padding: 20px 0;
-  }
-  .sliderTrack {
-    animation: scroll 15s linear infinite; /* adjust for smaller space */
+    font-size: 1.8rem;
   }
 }

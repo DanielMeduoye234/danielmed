@@ -2,7 +2,7 @@ import { Urbanist, Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header/Header.jsx";
 import Footer from "../components/Footer/Footer.jsx";
-import FloatingContactWrapper from "../components/Floating/FloatingContactWrapper"; 
+import FloatingContactWrapper from "../components/Floating/FloatingContactWrapper";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
@@ -17,8 +17,9 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "My Portfolio",
-  description: "Showcasing my projects",
+  title: "Daniel Meduoye | Full-Stack Developer & Digital Marketing Strategist",
+  description:
+    "Full-stack developer & digital marketer with 5+ years building high-performance web applications and driving 300%+ ROI through data-driven strategies.",
 };
 
 export default function RootLayout({ children }) {
@@ -28,7 +29,7 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <Footer />
-        <FloatingContactWrapper /> 
+        <FloatingContactWrapper />
       </body>
     </html>
   );

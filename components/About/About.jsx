@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../About/About.module.css";
-import Image from "next/image";
 import {
   FaReact,
   FaWordpress,
@@ -8,8 +7,17 @@ import {
   FaHtml5,
   FaCss3Alt,
   FaJsSquare,
+  FaNodeJs,
+  FaDatabase,
+  FaSearchDollar,
 } from "react-icons/fa";
-import { SiNextdotjs, SiTailwindcss } from "react-icons/si";
+import {
+  SiNextdotjs,
+  SiTailwindcss,
+  SiMongodb,
+  SiPostgresql,
+  SiGoogleanalytics,
+} from "react-icons/si";
 
 const About = () => {
   return (
@@ -18,55 +26,58 @@ const About = () => {
         <div className={styles.aboutContent}>
           {/* Left Text */}
           <div className={styles.left}>
-            <h1>About Me</h1>
+            <h1>Crafting Digital Excellence</h1>
             <p>
-              Hello! I'm <strong>Daniel Meduoye</strong>, a passionate web
-              developer with over <strong>5 years of experience</strong> building
-              dynamic, high-performance, and user-friendly websites. My expertise
-              lies in <strong>WordPress, Shopify, and Next.js/React.js</strong>,
-              where I bring modern design principles together with clean, scalable
-              code.
+              I am <strong>Daniel Meduoye</strong>, a Full-Stack Developer and
+              Digital Marketing Strategist with a focus on building
+              <strong> growth-oriented digital experiences</strong>. With over 5
+              years of expertise, I bridge the gap between complex engineering
+              and high-impact marketing.
             </p>
             <p>
-              Beyond coding, I’m always exploring new technologies, contributing
-              to open-source, and pushing myself to deliver digital experiences
-              that truly make an impact. Let’s build something amazing together!
+              My approach combines <strong>technical precision</strong> with
+              <strong> strategic insight</strong>. Whether it's architecting
+              scalable Next.js applications or engineering high-converting SEO
+              funnels, I deliver solutions that don't just work—they perform.
             </p>
 
             {/* Tech Stack */}
             <div className={styles.techStack}>
-              <h3>Tech Stack</h3>
+              <h3>Core Tech Stack</h3>
               <div className={styles.icons}>
-                <FaHtml5 title="HTML5" />
-                <FaCss3Alt title="CSS3" />
                 <FaJsSquare title="JavaScript" />
                 <FaReact title="React" />
                 <SiNextdotjs title="Next.js" />
+                <FaNodeJs title="Node.js" />
+                <SiMongodb title="MongoDB" />
+                <SiPostgresql title="PostgreSQL" />
                 <SiTailwindcss title="TailwindCSS" />
                 <FaWordpress title="WordPress" />
                 <FaShopify title="Shopify" />
+                <SiGoogleanalytics title="Google Analytics" />
               </div>
             </div>
           </div>
 
           {/* Right Section */}
           <div className={styles.right}>
-           
-
-            {/* Experience */}
-            <h2>Experience</h2>
+            <h2>Strategic Impact</h2>
             <div className={styles.experience}>
               <div className={styles.expBox}>
+                <h3>300%+ ROI</h3>
+                <p>Average Client Growth</p>
+              </div>
+              <div className={styles.expBox}>
                 <h3>5+ Years</h3>
-                <p>Web Development</p>
+                <p>Full-Stack Engineering</p>
               </div>
               <div className={styles.expBox}>
                 <h3>50+ Projects</h3>
-                <p>Completed Successfully</p>
+                <p>Successfully Launched</p>
               </div>
               <div className={styles.expBox}>
-                <h3>WordPress, Shopify, Next.js</h3>
-                <p>Core Expertise</p>
+                <h3>MERN Stack</h3>
+                <p>Core Specialization</p>
               </div>
             </div>
           </div>

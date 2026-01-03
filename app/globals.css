@@ -1,29 +1,27 @@
 :root {
-  --background: #000000;   /* black background */
-  --foreground: #ffffff;   /* white text */
-  --accent: #ff6600;       /* accent color (change if you like) */
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: linear-gradient(135deg, #fff8f0 0%, #ffe0b2 20%, #ff9800 100%);;
-    --foreground: #ededed;
-  }
+  --background: #050505;
+  --foreground: #ffffff;
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --secondary-gradient: linear-gradient(135deg, #3b82f6 0%, #2dd4bf 100%);
+  --accent-gradient: linear-gradient(135deg, #f43f5e 0%, #fb923c 100%);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+  --text-muted: #a1a1aa;
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  background: var(--background);
+  color: var(--foreground);
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-
   /* Use Urbanist as the default font */
   font-family: var(--font-urbanist, Arial, Helvetica, sans-serif);
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -37,32 +35,141 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-ul{
+ul {
   list-style: none;
 }
 
 /* Headings use secondary font (Poppins) */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-poppins, var(--font-urbanist), sans-serif);
-}
-
-/* Accent color for links or highlights */
-a:hover {
-  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;   /* centers content */
-  padding: 0 20px;  /* small side padding for mobile */
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
   width: 100%;
 }
 
+/* Glassmorphism Utility */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* Background Blobs */
+.blob {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.2) 0%,
+    rgba(168, 85, 247, 0.2) 100%
+  );
+  filter: blur(80px);
+  border-radius: 50%;
+  z-index: -1;
+  animation: blobFloat 20s infinite alternate;
+}
+
+.blob-1 {
+  top: -10%;
+  left: -10%;
+}
+
+.blob-2 {
+  bottom: -10%;
+  right: -10%;
+  animation-delay: -5s;
+}
+
+@keyframes blobFloat {
+  0% {
+    transform: translate(0, 0) scale(1);
   }
+  100% {
+    transform: translate(100px, 50px) scale(1.1);
+  }
+}
+
+/* Gradient Text Utility */
+.gradient-text {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.secondary-gradient-text {
+  background: var(--secondary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Animation Utilities */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Premium Noise Overlay */
+.noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background: url("https://grainy-gradients.vercel.app/noise.svg");
+  filter: contrast(120%) brightness(120%);
+}
+
+/* Premium Glow Utilities */
+.glow-primary {
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+}
+
+.glow-secondary {
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
+}
+
+/* Glass Pro Utility */
+.glass-pro {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    inset 0 0 20px rgba(255, 255, 255, 0.02);
 }

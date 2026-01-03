@@ -1,39 +1,50 @@
 .expertise {
-  padding: 80px 0;
-  background: linear-gradient(135deg, #1e1e2f, #111);
+  padding: 100px 0;
+  background: #050505;
   color: #fff;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
 }
 
 /* Card */
 .card {
   position: relative;
-  border-radius: 24px;
+  border-radius: 32px;
   overflow: hidden;
   cursor: pointer;
-  height: 340px;
+  height: 420px;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
-  transition: transform 0.4s ease;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.5),
+    inset 0 0 20px rgba(255, 255, 255, 0.02);
 
-  /* ✅ Rounded cut at bottom-right corner */
+  /* ✅ Keep the unique cut-out shape */
   clip-path: path(
-    "M0 0 H100% Vcalc(100% - 60px) A60 60 0 0 1 calc(100% - 60px) 100% H0 Z"
+    "M0 0 H100% Vcalc(100% - 70px) A70 70 0 0 1 calc(100% - 70px) 100% H0 Z"
   );
 }
 
 .card:hover {
-  transform: translateY(-12px);
+  transform: translateY(-20px) scale(1.02);
+  border-color: rgba(99, 102, 241, 0.4);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow:
+    0 30px 60px rgba(99, 102, 241, 0.2),
+    inset 0 0 30px rgba(255, 255, 255, 0.05);
 }
 
 .cardImg {
@@ -43,6 +54,13 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.8s ease;
+  filter: grayscale(0.5) contrast(1.1);
+}
+
+.card:hover .cardImg {
+  transform: scale(1.1);
+  filter: grayscale(0) contrast(1.1);
 }
 
 .overlay {
@@ -51,104 +69,92 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent 60%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent 70%);
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95),
+    rgba(99, 102, 241, 0.1) 100%
+  );
 }
 
 .cardTitle {
   position: relative;
   z-index: 2;
   color: #fff;
-  font-size: 1.3rem;
-  font-weight: 600;
-  padding: 20px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  padding: 30px;
   text-align: left;
+  line-height: 1.2;
 }
 
-/* Circle button in cut-out */
+/* Circle button with gradient */
 .icon {
   position: absolute;
-  bottom: 12px;
-  right: 12px;
-  background: #111;
+  bottom: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
   color: #fff;
-  width: 55px;
-  height: 55px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.3s ease;
+  transition: all 0.4s ease;
   z-index: 3;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .card:hover .icon {
-  background: #ff9800;
+  background: var(--primary-gradient);
+  transform: rotate(45deg);
+  border-color: transparent;
+  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
 }
 
 /* ==================== */
 /* ✅ Responsive Styles */
 /* ==================== */
 
-/* Medium screens (Tablets) */
 @media (max-width: 992px) {
   .expertise {
-    padding: 60px 15px;
+    padding: 80px 0;
   }
 
   .card {
-    height: 300px;
+    height: 380px;
   }
 
   .cardTitle {
-    font-size: 1.2rem;
-    padding: 16px;
-  }
-
-  .icon {
-    width: 50px;
-    height: 50px;
+    font-size: 1.4rem;
   }
 }
 
-/* Small screens (Mobiles) */
 @media (max-width: 768px) {
   .container {
-    grid-template-columns: 1fr; /* single column */
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
   }
 
   .card {
-    height: 280px;
-  }
-
-  .cardTitle {
-    font-size: 1.1rem;
+    height: 340px;
   }
 
   .icon {
-    width: 45px;
-    height: 45px;
+    width: 56px;
+    height: 56px;
   }
 }
 
-/* Extra small devices */
 @media (max-width: 480px) {
-  .expertise {
-    padding: 50px 10px;
-  }
-
-  .card {
-    height: 240px;
-    border-radius: 18px;
-  }
-
   .cardTitle {
-    font-size: 1rem;
-    padding: 14px;
-  }
-
-  .icon {
-    width: 40px;
-    height: 40px;
+    font-size: 1.25rem;
+    padding: 24px;
   }
 }

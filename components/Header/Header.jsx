@@ -5,6 +5,7 @@ import styles from "../Header/Header.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
   const [showForm, setShowForm] = useState(false);
@@ -58,51 +59,90 @@ const Header = () => {
         </div>
       </div>
 
-      {/* ✅ Mobile Menu */}
-      <div
-        className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ""}`}
-      >
-        <div className={styles.mobileHeader}>
-          <Image src="/logo.png" alt="Logo" width={100} height={35} />
-          <FaTimes
-            className={styles.closeIcon}
-            size={24}
-            onClick={() => setIsMobileMenuOpen(false)}
-          />
-        </div>
-        <ul>
-          <li>
-            <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link href="/wordpress" onClick={() => setIsMobileMenuOpen(false)}>
-              WordPress
-            </Link>
-          </li>
-          <li>
-            <Link href="/next" onClick={() => setIsMobileMenuOpen(false)}>
-              Next.js / React.js
-            </Link>
-          </li>
-          <li>
-            <Link href="/shop" onClick={() => setIsMobileMenuOpen(false)}>
-              Shopify
-            </Link>
-          </li>
-          <li className={styles.navbtn}>
-            <a
-              href="/cv.pdf"
-              download
-              className={styles.downloadBtn}
-              onClick={() => setIsMobileMenuOpen(false)}
+      {/* ✅ Mobile Menu with Framer Motion */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            className={styles.mobileMenu}
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+          >
+            <div className={styles.mobileHeader}>
+              <Image src="/logo.png" alt="Logo" width={100} height={35} />
+              <div
+                className={styles.closeIconWrapper}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <FaTimes size={24} />
+              </div>
+            </div>
+
+            <motion.ul
+              initial="closed"
+              animate="open"
+              variants={{
+                open: {
+                  transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+                },
+                closed: {
+                  transition: { staggerChildren: 0.05, staggerDirection: -1 },
+                },
+              }}
             >
-              DOWNLOAD CV
-            </a>
-          </li>
-        </ul>
-      </div>
+              {[
+                { name: "Home", href: "/" },
+                { name: "WordPress", href: "/wordpress" },
+                { name: "Next.js / React.js", href: "/next" },
+                { name: "Shopify", href: "/shop" },
+              ].map((item, i) => (
+                <motion.li
+                  key={i}
+                  variants={{
+                    open: { opacity: 1, y: 0 },
+                    closed: { opacity: 0, y: 20 },
+                  }}
+                >
+                  <Link
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                </motion.li>
+              ))}
+
+              <motion.li
+                variants={{
+                  open: { opacity: 1, y: 0 },
+                  closed: { opacity: 0, y: 20 },
+                }}
+                className={styles.navbtn}
+              >
+                <a
+                  href="/cv.pdf"
+                  download
+                  className={styles.downloadBtn}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  DOWNLOAD CV
+                </a>
+              </motion.li>
+            </motion.ul>
+
+            <motion.div
+              className={styles.mobileFooter}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+            >
+              <p>Let's build something exceptional.</p>
+              <span>danielmeduoye@gmail.com</span>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* ✅ Hire Me Popup */}
       {showForm && (

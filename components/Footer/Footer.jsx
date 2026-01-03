@@ -36,37 +36,36 @@ const Footer = () => {
               </Link>
             </div>
             <p>
-              Website developer with 5 years Experience in building WordPress,
-              Shopify, and Next.js applications for clients worldwide. I am
-              passionate about delivering high-quality, scalable solutions
-              tailored to your business needs.
+              Full-stack developer and digital marketing strategist specializing
+              in building scalable web applications and driving measurable
+              business growth. I combine technical expertise with marketing
+              strategy to deliver solutions that generate real ROI.
             </p>
           </div>
           <div className={styles.col2}>
-            <h3 className={styles.footh3}>Navigation</h3>
+            <h3 className={styles.footh3}>Platform</h3>
             <ul>
               <li>
-                <Link href="/">Home</Link>
+                <Link href="/">Overview</Link>
               </li>
               <li>
                 <Link href="/wordpress">WordPress</Link>
               </li>
               <li>
-                <Link href="/next">Next.js / React.js</Link>
+                <Link href="/next">Full-Stack</Link>
               </li>
               <li>
-                <Link href="/shop">Shopify</Link>
+                <Link href="/shop">E-Commerce</Link>
               </li>
             </ul>
           </div>
           <div className={styles.col3}>
-            <h3 className={styles.footh3}>Contact</h3>
+            <h3 className={styles.footh3}>Direct Contact</h3>
             <p>+234 701 3468 525</p>
             <p>danielmeduoye@gmail.com</p>
-            <p>meduoyedaniel6@gmail.com</p>
           </div>
           <div className={styles.col4}>
-            <h3 className={styles.footh3}>Get in Touch</h3>
+            <h3 className={styles.footh3}>Connect</h3>
             <div className={styles.socials}>
               <a
                 href="https://github.com/DanielMeduoye234"

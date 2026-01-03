@@ -1,19 +1,38 @@
 .header {
-  background-color: #000000;
-  margin: 20px 71px;
-  padding: 20px 40px;
+  position: sticky;
+  top: 20px;
+  background: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  margin: 20px auto;
+  padding: 12px 30px;
   border-radius: 100px;
-  position: relative;
-  z-index: 100;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  max-width: 1200px;
+  width: calc(100% - 40px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
 }
 
 /* Desktop Nav */
+.navlinks {
+  display: block;
+}
+
 .navlinks ul {
   display: flex;
   gap: 32px;
@@ -25,143 +44,162 @@
 
 .navlinks a {
   text-decoration: none;
-  color: white;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  color: #a1a1aa;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
 }
 
 .navlinks a:hover {
-  color: #ff9800;
+  color: #fff;
 }
 
-.navbtn button .downloadBtn {
-  background-color: #ff9800;
-  color: #000;
+.downloadBtn {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  color: #fff;
   border: none;
-  padding: 10px 22px;
-  border-radius: 6px;
+  padding: 10px 24px;
+  border-radius: 50px;
   cursor: pointer;
-  font-weight: bold;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-}
-
-
-.downloadBtn{
-   background-color: #ff9800;
-  color: #000;
-  border: none;
-  padding: 10px 22px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
+  font-weight: 700;
+  font-size: 0.85rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .downloadBtn:hover {
-  background-color: #e68900;
   transform: translateY(-2px);
-  color: #000;
+  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
 }
 
-.navbtn button:hover {
-  background-color: #e68900;
-  transform: translateY(-2px);
-}
-
-/* Hamburger (hidden desktop) */
+/* Hamburger */
 .hamburger {
   display: none;
   color: #fff;
   cursor: pointer;
 }
 
-/* Mobile Menu */
+/* Mobile Menu with Framer Motion */
 .mobileMenu {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background: #111;
-  color: #fff;
-  transform: translateX(-100%);
-  transition: transform 0.4s ease;
-  padding: 20px;
-  z-index: 200;
+  background: rgba(5, 5, 5, 0.95);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  z-index: 2000;
   display: flex;
   flex-direction: column;
-}
-
-.mobileMenu.open {
-  transform: translateX(0);
+  padding: 40px;
+  overflow: hidden;
 }
 
 .mobileHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 60px;
+  width: 100%;
 }
 
-.closeIcon {
-  cursor: pointer;
+.closeIconWrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.closeIconWrapper:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(90deg);
 }
 
 .mobileMenu ul {
   list-style: none;
   padding: 0;
-  margin-top: 60px;
+  margin: 0;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  justify-content: center;
+  gap: 30px;
 }
 
-.mobileMenu a {
+.mobileMenu ul li {
+  text-align: center;
+}
+
+.mobileMenu ul li a {
+  font-size: 2.5rem;
+  font-weight: 800;
   color: #fff;
   text-decoration: none;
-  font-size: 1.3rem;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  letter-spacing: -0.04em;
+  opacity: 0.7;
 }
 
-.mobileMenu a:hover {
-  color: #ff9800;
+.mobileMenu ul li a:hover {
+  opacity: 1;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.mobileMenu .navbtn button {
-  width: 100%;
-  margin-top: 30px;
+.navbtn .downloadBtn {
   font-size: 1.1rem;
-  padding: 14px;
-  border-radius: 8px;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  -webkit-text-fill-color: #fff !important;
+  padding: 18px 40px;
+  border-radius: 100px;
+  display: inline-block;
+  opacity: 1 !important;
+  margin-top: 20px;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
 }
 
-/* ✅ Responsive Breakpoints */
-@media (max-width: 1024px) {
-  .header {
-    margin: 10px 20px;
-    padding: 15px 25px;
-  }
-  .navlinks ul {
-    gap: 20px;
-  }
-  .navbtn button {
-    padding: 8px 18px;
-    font-size: 0.9rem;
-  }
+.mobileFooter {
+  text-align: center;
+  margin-top: auto;
+  padding-bottom: 20px;
 }
 
-@media (max-width: 768px) {
+.mobileFooter p {
+  color: #71717a;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.mobileFooter span {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
   .navlinks {
-    display: none; /* hide desktop nav */
+    display: none;
   }
   .hamburger {
     display: block;
   }
+}
+
+@media (max-width: 768px) {
   .header {
-    margin: 10px 15px;
-    border-radius: 12px;
-    padding: 12px 20px;
+    width: calc(100% - 30px);
+    margin: 15px auto;
+    padding: 10px 20px;
+    border-radius: 20px;
   }
 }

@@ -13,17 +13,27 @@ import {
   FaFigma,
   FaJs,
 } from "react-icons/fa";
-import { SiNextdotjs } from "react-icons/si";
+import {
+  SiNextdotjs,
+  SiMongodb,
+  SiPostgresql,
+  SiTailwindcss,
+  SiGoogleanalytics,
+} from "react-icons/si";
 
 const icons = [
   { icon: <FaWordpress />, name: "WordPress" },
   { icon: <FaShopify />, name: "Shopify" },
   { icon: <FaReact />, name: "React" },
   { icon: <SiNextdotjs />, name: "Next.js" },
+  { icon: <FaNodeJs />, name: "Node.js" },
+  { icon: <SiMongodb />, name: "MongoDB" },
+  { icon: <SiPostgresql />, name: "PostgreSQL" },
+  { icon: <SiTailwindcss />, name: "TailwindCSS" },
+  { icon: <SiGoogleanalytics />, name: "Google Analytics" },
   { icon: <FaJs />, name: "JavaScript" },
   { icon: <FaHtml5 />, name: "HTML5" },
   { icon: <FaCss3Alt />, name: "CSS3" },
-  { icon: <FaNodeJs />, name: "Node.js" },
   { icon: <FaFigma />, name: "Figma" },
   { icon: <FaGitAlt />, name: "Git" },
 ];

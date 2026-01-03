@@ -1,114 +1,154 @@
 .about {
-  padding: 80px 0;
-  background: #111;
+  padding: 100px 0;
+  background: #050505;
   color: #fff;
+  position: relative;
 }
 
 .aboutContent {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 60px;
+  gap: 80px;
 }
 
 .left {
-  flex: 1;
+  flex: 1.2;
 }
 
 .left h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 20px;
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .left p {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   line-height: 1.8;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  color: #a1a1aa;
+}
+
+.left p strong {
+  color: #fff;
+  font-weight: 600;
 }
 
 /* Tech Stack */
 .techStack {
-  margin-top: 30px;
+  margin-top: 50px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
 }
 
 .techStack h3 {
   font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: #ff9800;
+  margin-bottom: 25px;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .icons {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
-  font-size: 2rem;
+  gap: 24px;
+  font-size: 2.5rem;
 }
 
 .icons svg {
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
+  color: #71717a;
+  filter: drop-shadow(0 0 0 transparent);
 }
 
 .icons svg:hover {
-  transform: translateY(-5px);
-  color: #ff9800;
+  transform: translateY(-8px) scale(1.1);
+  color: #6366f1;
+  filter: drop-shadow(0 0 15px rgba(99, 102, 241, 0.5));
 }
 
 .right {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-.profileImg {
-  margin-bottom: 20px;
-}
-
-.image {
-  border-radius: 12px;
-  object-fit: cover;
-  width: 100%;
-  max-width: 420px;
 }
 
 .right h2 {
   font-size: 2rem;
-  color: #ff9800;
-  margin-bottom: 20px;
+  color: #fff;
+  margin-bottom: 30px;
+  font-weight: 700;
 }
 
 .experience {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
   gap: 20px;
   width: 100%;
 }
 
 .expBox {
-  background: #1c1c1c;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  transition: transform 0.3s ease, background 0.3s ease;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.expBox::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.1) 0%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .expBox:hover {
   transform: translateY(-5px);
-  background: #222;
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.expBox:hover::before {
+  opacity: 1;
 }
 
 .expBox h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: #ff9800;
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .expBox p {
-  font-size: 1rem;
-  color: #ddd;
+  font-size: 1.1rem;
+  color: #a1a1aa;
+  font-weight: 500;
 }
 
 /* ✅ Responsive Styling */
@@ -117,74 +157,61 @@
     gap: 40px;
   }
   .left h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
   }
 }
 
 @media (max-width: 992px) {
+  .about {
+    padding: 80px 0;
+  }
   .aboutContent {
     flex-direction: column;
     text-align: center;
-    gap: 50px;
+    gap: 60px;
   }
   .left h1 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
   .left p {
-    font-size: 1rem;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .icons {
     justify-content: center;
   }
-  .right h2 {
-    font-size: 1.8rem;
+  .experience {
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+  }
+  .expBox {
+    text-align: center;
   }
 }
 
 @media (max-width: 768px) {
-  .about {
-    padding: 60px 20px;
+  .experience {
+    grid-template-columns: 1fr;
   }
   .left h1 {
-    font-size: 2rem;
+    font-size: 2.22rem;
   }
-  .left p {
-    font-size: 0.95rem;
-    line-height: 1.7;
+  .techStack {
+    padding: 20px;
   }
   .icons {
-    font-size: 1.7rem;
-    gap: 12px;
-  }
-  .image {
-    max-width: 320px;
-  }
-  .expBox h3 {
-    font-size: 1.3rem;
-  }
-  .expBox p {
-    font-size: 0.9rem;
+    font-size: 2rem;
+    gap: 16px;
   }
 }
 
 @media (max-width: 480px) {
   .left h1 {
-    font-size: 1.7rem;
-  }
-  .right h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   .icons {
-    font-size: 1.5rem;
-    gap: 10px;
-  }
-  .expBox {
-    padding: 15px;
-  }
-  .expBox h3 {
-    font-size: 1.2rem;
-  }
-  .expBox p {
-    font-size: 0.85rem;
+    gap: 12px;
   }
 }

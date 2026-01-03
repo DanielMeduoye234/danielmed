@@ -7,84 +7,152 @@ import { motion, useReducedMotion } from "framer-motion";
 import HireMe from "../Hire/HireMe"; // ✅ import HireMe
 
 const Hero = () => {
-  const [hireMeOpen, setHireMeOpen] = useState(false); // state for popup
+  const [hireMeOpen, setHireMeOpen] = useState(false);
   const shouldReduceMotion = useReducedMotion();
-
-  // Float animation
-  const animateFloat = shouldReduceMotion ? { y: 0 } : { y: [0, -16, 0] };
-  const floatTransition = shouldReduceMotion
-    ? { duration: 0 }
-    : { duration: 5, repeat: Infinity, repeatType: "loop", ease: "easeInOut" };
-
-  // Typing effect
-  const fullText = "Hi, I’m Daniel Meduoye";
-  const [displayedText, setDisplayedText] = useState("");
-
-  useEffect(() => {
-    let i = 0;
-    const interval = setInterval(() => {
-      setDisplayedText(fullText.slice(0, i + 1));
-      i++;
-      if (i === fullText.length) clearInterval(interval);
-    }, 100);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <section className={styles.hero}>
-      <div className="container">
+      <div className={styles.container}>
         <div className={styles.heroContent}>
           {/* Left Text */}
-          <div className={styles.text}>
-            <h1>
-              {displayedText.split("Daniel Meduoye")[0]}
-              <span>
-                {displayedText.includes("Daniel Meduoye")
-                  ? "Daniel Meduoye"
-                  : ""}
-              </span>
-            </h1>
-            <p>
-              A passionate <strong>Digital Marketer & Web Developer</strong>{" "}
-              with 5+ years of experience building high-performance websites in
-              WordPress, Shopify, and Next.js.
-            </p>
-            <div className={styles.cta}>
-              {/* ✅ Trigger popup instead of Link */}
+          <motion.div
+            className={styles.text}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <motion.div
+              className={styles.badge}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              🚀 <span>ROI-Driven Full-Stack Engineer</span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            >
+              I Build Digital <br />
+              <span className={styles.gradientText}>FullStack Project</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+            >
+              Specializing in{" "}
+              <strong>high-performance full-stack engineering</strong> and
+              <strong> strategic digital marketing</strong>. I bridge the gap
+              between complex code and measurable business success.
+            </motion.p>
+
+            <motion.div
+              className={styles.cta}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+            >
               <button
                 className={styles.primaryBtn}
                 onClick={() => setHireMeOpen(true)}
               >
-                Hire Me
+                Let's Scale Your Business
               </button>
 
               <button className={styles.secondaryBtn}>
-                <a href="/cv.pdf" download className={styles.downloadBtn}>
-                  DOWNLOAD CV
+                <a href="#expertise" className={styles.downloadBtn}>
+                  Review My Projects
                 </a>
               </button>
-            </div>
-          </div>
+            </motion.div>
 
-          {/* Right Floating Image */}
+            <motion.div
+              className={styles.stats}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 1 }}
+            >
+              <div className={styles.statItem}>
+                <h4>300%+</h4>
+                <span>Avg. Client ROI</span>
+              </div>
+              <div className={styles.divider}></div>
+              <div className={styles.statItem}>
+                <h4>50+</h4>
+                <span>Projects Launched</span>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Visual Section */}
           <motion.div
-            className={styles.heroImg}
-            animate={animateFloat}
-            transition={floatTransition}
-            whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
+            className={styles.visualSection}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
-            <Image
-              src="/header-img.png"
-              alt="Daniel Meduoye"
-              width={550}
-              height={550}
-              priority
-            />
+            <div className={styles.imageWrapper}>
+              <div className={styles.glowBg}></div>
+              <motion.div
+                className={styles.mainImage}
+                animate={{ y: [0, -20, 0] }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <Image
+                  src="/header-img.png"
+                  alt="Daniel Meduoye"
+                  width={600}
+                  height={600}
+                  priority
+                />
+              </motion.div>
+
+              {/* Floating Elements for "Wow" Factor */}
+              <motion.div
+                className={`${styles.floatingCard} ${styles.card1}`}
+                animate={{ y: [0, 15, 0], x: [0, -10, 0] }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <div className={styles.cardIcon}>⚡</div>
+                <div className={styles.cardText}>
+                  <strong>99+</strong>
+                  <span>Performance</span>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className={`${styles.floatingCard} ${styles.card2}`}
+                animate={{ y: [0, -15, 0], x: [0, 10, 0] }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                }}
+              >
+                <div className={styles.cardIcon}>📈</div>
+                <div className={styles.cardText}>
+                  <strong>$1M+</strong>
+                  <span>Ad Spend Managed</span>
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
 
-      {/* ✅ Popup rendered here */}
       <HireMe open={hireMeOpen} setOpen={setHireMeOpen} />
     </section>
   );
