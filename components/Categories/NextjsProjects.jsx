@@ -13,7 +13,7 @@ const NextjsProjects = () => {
   useEffect(() => {
     client
       .fetch(
-        `*[_type == "project" && category->slug.current == "nextjs"] | order(_createdAt desc)[0...4]{
+        `*[_type == "project" && (category->slug.current == "nextjs" || category->slug.current match "next*")] | order(_createdAt desc){
           _id,
           title,
           link,

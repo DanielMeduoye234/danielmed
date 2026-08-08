@@ -15,7 +15,7 @@ export default function GraphicsProjects() {
       try {
         // fetch each graphics doc with its images array
         const data = await client.fetch(
-          `*[_type == "graphics"] | order(_createdAt desc)[0...4]{
+          `*[_type == "graphics"] | order(_createdAt desc){
             _id,
             title,
             "images": images[] { "url": asset->url, "id": asset->_id }

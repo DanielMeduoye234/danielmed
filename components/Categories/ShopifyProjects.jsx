@@ -13,7 +13,7 @@ const ShopifyProjects = () => {
   useEffect(() => {
     client
       .fetch(
-        `*[_type == "project" && category->slug.current == "shopify"] | order(_createdAt desc)[0...4]{
+        `*[_type == "project" && (category->slug.current == "shopify" || category->slug.current match "shop*")] | order(_createdAt desc){
           _id,
           title,
           link,

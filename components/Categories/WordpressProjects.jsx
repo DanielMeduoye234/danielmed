@@ -13,7 +13,7 @@ const WordpressProjects = () => {
   useEffect(() => {
     client
       .fetch(
-        `*[_type == "project" && category->slug.current == "wordpress"] | order(_createdAt desc)[0...4]{
+        `*[_type == "project" && (category->slug.current == "wordpress" || category->slug.current match "word*")] | order(_createdAt desc){
           _id,
           title,
           link,
