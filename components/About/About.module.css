@@ -1,5 +1,5 @@
 .about {
-  padding: 100px 0;
+  padding: 48px 0;
   background: #050505;
   color: #fff;
   position: relative;
@@ -9,7 +9,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 80px;
+  gap: 40px;
 }
 
 .left {
@@ -17,9 +17,9 @@
 }
 
 .left h1 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 800;
-  margin-bottom: 30px;
+  margin-bottom: 16px;
   background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -27,9 +27,9 @@
 }
 
 .left p {
-  font-size: 1.15rem;
-  line-height: 1.8;
-  margin-bottom: 24px;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin-bottom: 14px;
   color: #a1a1aa;
 }
 
@@ -40,16 +40,16 @@
 
 /* Tech Stack */
 .techStack {
-  margin-top: 50px;
-  padding: 30px;
+  margin-top: 24px;
+  padding: 20px;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
+  border-radius: 16px;
 }
 
 .techStack h3 {
-  font-size: 1.5rem;
-  margin-bottom: 25px;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
   color: #fff;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -59,8 +59,8 @@
 .icons {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
-  font-size: 2.5rem;
+  gap: 18px;
+  font-size: 2rem;
 }
 
 .icons svg {
@@ -71,7 +71,7 @@
 }
 
 .icons svg:hover {
-  transform: translateY(-8px) scale(1.1);
+  transform: translateY(-6px) scale(1.1);
   color: #6366f1;
   filter: drop-shadow(0 0 15px rgba(99, 102, 241, 0.5));
 }
@@ -83,16 +83,16 @@
 }
 
 .right h2 {
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: #fff;
-  margin-bottom: 30px;
+  margin-bottom: 16px;
   font-weight: 700;
 }
 
 .experience {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 20px;
+  gap: 14px;
   width: 100%;
 }
 
@@ -100,8 +100,8 @@
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  padding: 30px;
-  border-radius: 20px;
+  padding: 18px 24px;
+  border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   text-align: left;
   transition: all 0.3s ease;

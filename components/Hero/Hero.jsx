@@ -6,6 +6,8 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import HireMe from "../Hire/HireMe"; // ✅ import HireMe
 
+import CategoryNav from "../Nav/CategoryNav";
+
 const Hero = () => {
   const [hireMeOpen, setHireMeOpen] = useState(false);
   const shouldReduceMotion = useReducedMotion();
@@ -36,7 +38,7 @@ const Hero = () => {
               transition={{ delay: 0.5, duration: 0.8 }}
             >
               I Build Digital <br />
-              <span className={styles.gradientText}>FullStack Project</span>
+              <span className={styles.gradientText}>FullStack Projects</span>
             </motion.h1>
 
             <motion.p
@@ -151,6 +153,9 @@ const Hero = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* ✅ Recruiter Quick Navigation Bar */}
+        <CategoryNav />
       </div>
 
       <HireMe open={hireMeOpen} setOpen={setHireMeOpen} />

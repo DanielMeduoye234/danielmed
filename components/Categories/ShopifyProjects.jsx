@@ -8,36 +8,54 @@ import Link from "next/link";
 
 const ShopifyProjects = () => {
   const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     client
       .fetch(
-        `*[_type == "project" && category->slug.current == "shopify"]{
+        `*[_type == "project" && category->slug.current == "shopify"] | order(_createdAt desc)[0...4]{
           _id,
           title,
           link,
           "imageUrl": image.asset->url
         }`
       )
-      .then((data) => setProjects(data))
-      .catch((err) => console.error("Error fetching Shopify projects:", err));
+      .then((data) => {
+        setProjects(data || []);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching Shopify projects:", err);
+        setLoading(false);
+      });
   }, []);
 
   return (
     <section className={styles.projects}>
-
       <div className={styles.grid}>
-        {projects.length > 0 ? (
+        {loading ? (
+          Array.from({ length: 4 }).map((_, idx) => (
+            <div key={idx} className={`${styles.card} ${styles.skeletonCard}`}>
+              <div className={styles.skeletonImage}></div>
+              <div className={styles.cardContent}>
+                <div className={styles.skeletonTitle}></div>
+                <div className={styles.skeletonBtn}></div>
+              </div>
+            </div>
+          ))
+        ) : projects.length > 0 ? (
           projects.map((project) => (
             <div key={project._id} className={styles.card}>
               {project.imageUrl && (
-                <Image
-                  src={project.imageUrl}
-                  alt={project.title}
-                  width={600}
-                  height={400}
-                  className={styles.cardImage}
-                />
+                <div className={styles.imageWrap}>
+                  <Image
+                    src={project.imageUrl}
+                    alt={project.title}
+                    width={600}
+                    height={400}
+                    className={styles.cardImage}
+                  />
+                </div>
               )}
               <div className={styles.cardContent}>
                 <h3>{project.title}</h3>
@@ -50,7 +68,7 @@ const ShopifyProjects = () => {
             </div>
           ))
         ) : (
-          <p style={{ textAlign: "center", color: "#fff" }}>
+          <p className={styles.noProjectsText}>
             No Shopify projects available at the moment.
           </p>
         )}

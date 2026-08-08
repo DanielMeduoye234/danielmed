@@ -85,27 +85,28 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(5, 5, 5, 0.95);
+  height: 100dvh;
+  background: rgba(5, 5, 5, 0.98);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   z-index: 2000;
   display: flex;
   flex-direction: column;
-  padding: 40px;
-  overflow: hidden;
+  padding: 30px 24px;
+  overflow-y: auto;
 }
 
 .mobileHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   width: 100%;
 }
 
 .closeIconWrapper {
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.05);
   display: flex;
@@ -130,7 +131,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
 }
 
 .mobileMenu ul li {
@@ -138,13 +139,13 @@
 }
 
 .mobileMenu ul li a {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 800;
   color: #fff;
   text-decoration: none;
   transition: all 0.3s ease;
-  letter-spacing: -0.04em;
-  opacity: 0.7;
+  letter-spacing: -0.02em;
+  opacity: 0.85;
 }
 
 .mobileMenu ul li a:hover {
@@ -156,33 +157,34 @@
 }
 
 .navbtn .downloadBtn {
-  font-size: 1.1rem;
+  font-size: 1rem;
   background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
   -webkit-text-fill-color: #fff !important;
-  padding: 18px 40px;
+  padding: 14px 32px;
   border-radius: 100px;
   display: inline-block;
   opacity: 1 !important;
-  margin-top: 20px;
+  margin-top: 10px;
   box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
 }
 
 .mobileFooter {
   text-align: center;
   margin-top: auto;
+  padding-top: 30px;
   padding-bottom: 20px;
 }
 
 .mobileFooter p {
   color: #71717a;
-  font-size: 0.95rem;
-  margin-bottom: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
 }
 
 .mobileFooter span {
   color: #fff;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 /* Responsive */

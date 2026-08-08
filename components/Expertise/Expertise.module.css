@@ -1,50 +1,49 @@
 .expertise {
-  padding: 100px 0;
+  padding: 48px 0;
   background: #050505;
   color: #fff;
 }
 
 .container {
-  max-width: 1280px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0 24px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 /* Card */
 .card {
   position: relative;
-  border-radius: 32px;
+  border-radius: 24px;
   overflow: hidden;
   cursor: pointer;
-  height: 420px;
+  height: 320px;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.5),
-    inset 0 0 20px rgba(255, 255, 255, 0.02);
+    0 15px 35px rgba(0, 0, 0, 0.4),
+    inset 0 0 15px rgba(255, 255, 255, 0.02);
 
-  /* ✅ Keep the unique cut-out shape */
   clip-path: path(
-    "M0 0 H100% Vcalc(100% - 70px) A70 70 0 0 1 calc(100% - 70px) 100% H0 Z"
+    "M0 0 H100% Vcalc(100% - 50px) A50 50 0 0 1 calc(100% - 50px) 100% H0 Z"
   );
 }
 
 .card:hover {
-  transform: translateY(-20px) scale(1.02);
+  transform: translateY(-8px) scale(1.02);
   border-color: rgba(99, 102, 241, 0.4);
   background: rgba(255, 255, 255, 0.07);
   box-shadow:
-    0 30px 60px rgba(99, 102, 241, 0.2),
-    inset 0 0 30px rgba(255, 255, 255, 0.05);
+    0 20px 40px rgba(99, 102, 241, 0.2),
+    inset 0 0 25px rgba(255, 255, 255, 0.05);
 }
 
 .cardImg {
@@ -54,12 +53,12 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s ease;
-  filter: grayscale(0.5) contrast(1.1);
+  transition: transform 0.6s ease;
+  filter: grayscale(0.4) contrast(1.1);
 }
 
 .card:hover .cardImg {
-  transform: scale(1.1);
+  transform: scale(1.08);
   filter: grayscale(0) contrast(1.1);
 }
 
@@ -69,7 +68,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent 70%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
   transition: opacity 0.3s ease;
 }
 
@@ -77,7 +76,7 @@
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.95),
-    rgba(99, 102, 241, 0.1) 100%
+    rgba(99, 102, 241, 0.15) 100%
   );
 }
 
@@ -85,23 +84,23 @@
   position: relative;
   z-index: 2;
   color: #fff;
-  font-size: 1.6rem;
+  font-size: 1.25rem;
   font-weight: 800;
-  padding: 30px;
+  padding: 20px;
   text-align: left;
-  line-height: 1.2;
+  line-height: 1.3;
 }
 
 /* Circle button with gradient */
 .icon {
   position: absolute;
-  bottom: 15px;
-  right: 15px;
+  bottom: 10px;
+  right: 10px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   color: #fff;
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -115,46 +114,54 @@
   background: var(--primary-gradient);
   transform: rotate(45deg);
   border-color: transparent;
-  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
 }
 
 /* ==================== */
 /* ✅ Responsive Styles */
 /* ==================== */
 
+@media (max-width: 1280px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
 @media (max-width: 992px) {
   .expertise {
-    padding: 80px 0;
+    padding: 40px 0;
   }
 
   .card {
-    height: 380px;
+    height: 300px;
   }
 
   .cardTitle {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 }
 
 @media (max-width: 768px) {
   .container {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0 16px;
   }
 
   .card {
-    height: 340px;
+    height: 260px;
   }
 
   .icon {
-    width: 56px;
-    height: 56px;
+    width: 44px;
+    height: 44px;
   }
 }
 
 @media (max-width: 480px) {
   .cardTitle {
-    font-size: 1.25rem;
-    padding: 24px;
+    font-size: 1.15rem;
+    padding: 16px;
   }
 }

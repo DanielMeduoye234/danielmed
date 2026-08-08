@@ -21,6 +21,11 @@ const expertiseData = [
     img: "/shop.jpg",
     link: "/shop",
   },
+  {
+    title: "Graphics Design & Branding",
+    img: "/graphics.jpg",
+    link: "/graphics",
+  },
 ];
 
 const Expertise = () => {

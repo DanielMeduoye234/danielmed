@@ -1,6 +1,6 @@
 .heading {
   width: 100%;
-  padding: 120px 0 80px;
+  padding: 100px 16px 50px;
   background: #050505;
   text-align: center;
   color: #ffffff;
@@ -11,30 +11,30 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 40px;
+  padding: 50px 30px;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 32px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
   position: relative;
   z-index: 2;
 }
 
 .heading h1 {
-  font-size: 3.5rem;
+  font-size: clamp(1.75rem, 5.5vw, 3.5rem);
   font-weight: 800;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .heading p {
-  font-size: 1.25rem;
+  font-size: clamp(0.95rem, 2.5vw, 1.25rem);
   color: #a1a1aa;
   max-width: 700px;
   margin: 0 auto;
@@ -45,41 +45,20 @@
 /* ✅ Responsive Styles */
 /* ==================== */
 
-@media (max-width: 992px) {
-  .heading {
-    padding: 100px 20px 60px;
-  }
-
-  .container {
-    padding: 40px 30px;
-  }
-
-  .heading h1 {
-    font-size: 2.8rem;
-  }
-
-  .heading p {
-    font-size: 1.1rem;
-  }
-}
-
 @media (max-width: 768px) {
-  .heading h1 {
-    font-size: 2.2rem;
+  .heading {
+    padding: 80px 12px 40px;
   }
 
   .container {
-    padding: 30px 20px;
-    border-radius: 30px;
+    padding: 30px 18px;
+    border-radius: 24px;
   }
 }
 
 @media (max-width: 480px) {
-  .heading h1 {
-    font-size: 1.8rem;
-  }
-
-  .heading p {
-    font-size: 1rem;
+  .container {
+    padding: 24px 14px;
+    border-radius: 20px;
   }
 }

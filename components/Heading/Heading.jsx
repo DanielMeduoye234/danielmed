@@ -3,6 +3,7 @@
 import React from "react";
 import styles from "../Heading/Heading.module.css";
 import { motion } from "framer-motion";
+import CategoryNav from "../Nav/CategoryNav";
 
 const Heading = ({ title, subtitle }) => {
   return (
@@ -23,6 +24,8 @@ const Heading = ({ title, subtitle }) => {
         >
           {subtitle}
         </motion.p>
+
+        <CategoryNav />
       </div>
     </div>
   );

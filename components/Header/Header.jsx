@@ -42,6 +42,9 @@ const Header = () => {
             <li>
               <Link href="/shop">Shopify</Link>
             </li>
+            <li>
+              <Link href="/graphics">Graphics</Link>
+            </li>
             <li className={styles.navbtn}>
               <a href="/cv.pdf" download className={styles.downloadBtn}>
                 DOWNLOAD CV
@@ -96,6 +99,7 @@ const Header = () => {
                 { name: "WordPress", href: "/wordpress" },
                 { name: "Next.js / React.js", href: "/next" },
                 { name: "Shopify", href: "/shop" },
+                { name: "Graphics", href: "/graphics" },
               ].map((item, i) => (
                 <motion.li
                   key={i}
