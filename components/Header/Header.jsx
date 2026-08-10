@@ -46,7 +46,7 @@ const Header = () => {
               <Link href="/graphics">Graphics</Link>
             </li>
             <li className={styles.navbtn}>
-              <a href="/cv.pdf" download className={styles.downloadBtn}>
+              <a href="/Resume.pdf" download className={styles.downloadBtn}>
                 DOWNLOAD CV
               </a>
             </li>
@@ -125,7 +125,7 @@ const Header = () => {
                 className={styles.navbtn}
               >
                 <a
-                  href="/cv.pdf"
+                  href="/Resume.pdf"
                   download
                   className={styles.downloadBtn}
                   onClick={() => setIsMobileMenuOpen(false)}
